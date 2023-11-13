@@ -5,9 +5,11 @@ from watchfiles import watch
 import base_weights
 import calculations
 import player_tooling
+import config
 
 
-data_folder = "./data"
+data_folder = config.get_data_folder_path()
+
 for changes in watch(data_folder):
     change = changes.pop()
     (_, file_path) = change
