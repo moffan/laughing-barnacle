@@ -1,5 +1,5 @@
-def calculate_ratings(stats, weights, cutoff=0):
-    sum = 0
+def calculate_weighted_average(stats, weights, cutoff=0):
+    sum_attributes = 0
     weight_total = 0
     number_of_decimals = 2
 
@@ -10,8 +10,8 @@ def calculate_ratings(stats, weights, cutoff=0):
             attribute = int(stats[key])
 
             weighted_attribute = attribute * weight
-            sum += weighted_attribute
+            sum_attributes += weighted_attribute
 
-    weighted_sum = sum / weight_total
+    weighted_sum = sum_attributes / weight_total
 
     return round(weighted_sum, number_of_decimals)

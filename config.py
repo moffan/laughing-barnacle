@@ -1,7 +1,5 @@
-from pathlib import Path as _Path
+from file_system import get_full_path
 
 
 def get_data_folder_path():
-    p = _Path("data")
-
-    return p.resolve()
+    return get_full_path("data")

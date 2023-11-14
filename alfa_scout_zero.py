@@ -7,14 +7,26 @@ import calculations
 import player_tooling
 import config
 
+from file_system import (
+    create_folder_if_not_exist,
+    get_all_files_in_folder,
+    read_json_file,
+)
 
 print("### Welcome to fm scouting ###")
 
 data_folder = config.get_data_folder_path()
+create_folder_if_not_exist(data_folder)
 
-# def setup():
-if not os.path.isdir(data_folder):
-    os.makedirs(data_folder)
+known_roles = get_all_files_in_folder("settings")
+
+roles = {}
+
+for role in known_roles:
+    roles[role] = read_json_file(role)
+
+if not roles:
+    roles = base_weights.weights
 
 for changes in watch(data_folder):
     change = changes.pop()
@@ -24,13 +36,11 @@ for changes in watch(data_folder):
     cutoff = 0
     stats = player_tooling.get_player_stats(file_path)
 
-    rankings = {
-        "cd": calculations.calculate_ratings(stats, base_weights.cd, cutoff),
-        "fb": calculations.calculate_ratings(stats, base_weights.fb, cutoff),
-        "dm": calculations.calculate_ratings(stats, base_weights.dm, cutoff),
-        "w": calculations.calculate_ratings(stats, base_weights.w, cutoff),
-        "am": calculations.calculate_ratings(stats, base_weights.am, cutoff),
-        "st": calculations.calculate_ratings(stats, base_weights.st, cutoff),
-    }
+    rankings = {}
+    for ranked_role, value in roles.items():
+        if not value:
+            continue
+
+        rankings[ranked_role] = calculations.calculate_weighted_average(stats, value)
 
     print(filename + " : " + str(rankings))
