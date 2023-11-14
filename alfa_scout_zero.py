@@ -10,6 +10,10 @@ import config
 
 data_folder = config.get_data_folder_path()
 
+# def setup():
+if not os.path.isdir(data_folder):
+    os.makedirs(data_folder)
+
 for changes in watch(data_folder):
     change = changes.pop()
     (_, file_path) = change
