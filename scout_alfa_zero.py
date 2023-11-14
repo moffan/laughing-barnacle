@@ -8,6 +8,8 @@ import player_tooling
 import config
 
 
+print("### Welcome to fm scouting ###")
+
 data_folder = config.get_data_folder_path()
 
 for changes in watch(data_folder):
