@@ -7,7 +7,11 @@ def calculate_weighted_average(stats, weights, cutoff=0):
         weight = int(weights[key])
         if weight >= cutoff:
             weight_total += weight
-            attribute = int(stats[key])
+
+            if key in stats.keys():
+                attribute = int(stats[key])
+            else:
+                attribute = 0
 
             weighted_attribute = attribute * weight
             sum_attributes += weighted_attribute
