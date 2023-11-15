@@ -20,13 +20,12 @@ create_folder_if_not_exist(data_folder)
 
 known_roles = get_all_files_in_folder("settings")
 
-roles = {}
-
-for role in known_roles:
-    roles[role] = read_json_file(role)
-
-if not roles:
+if not known_roles:
     roles = base_weights.weights
+else:
+    roles = {}
+    for role in known_roles:
+        roles[role.stem] = read_json_file(role)
 
 for changes in watch(data_folder):
     change = changes.pop()
