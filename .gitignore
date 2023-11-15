@@ -166,3 +166,7 @@ data/
 *.7z
 *.zip
 settings/
+
+temp_testing.py
+
+tmp/
