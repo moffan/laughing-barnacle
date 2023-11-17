@@ -1,4 +1,11 @@
+from watchfiles import watch
+import calculations
 import csv
+import os
+import player_tooling
+
+from settings import data_folder
+from roles import player_roles
 
 
 def get_temp_player_data(filename):
@@ -21,3 +28,23 @@ def create_attribute_file(filename):
                 value = item[1].strip()
                 fp.write("'%s':'',\n" % value)
     print("Done")
+
+
+def watch_players():
+    for changes in watch(data_folder):
+        change = changes.pop()
+        (_, file_path) = change
+        filename = os.path.splitext(os.path.basename(file_path))[0]
+
+        stats = player_tooling.get_player_stats(file_path)
+
+        rankings = {}
+        for ranked_role, value in player_roles.items():
+            if not value:
+                continue
+
+            rankings[ranked_role] = calculations.calculate_weighted_average(
+                stats, value
+            )
+
+        print(filename + " : " + str(rankings))

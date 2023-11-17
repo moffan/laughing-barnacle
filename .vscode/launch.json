@@ -11,6 +11,13 @@
       "program": "${file}",
       "console": "integratedTerminal",
       "justMyCode": true
+    },
+    {
+      "name": "FM Scout",
+      "type": "python",
+      "request": "launch",
+      "module": "alfa_scout_zero",
+      "justMyCode": true
     }
   ]
 }
