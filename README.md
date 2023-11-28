@@ -59,12 +59,24 @@ For a `"Imported full back - support"` create a file named `inverted-fullback-su
 
 > Note! the name of the attributes must match the names in game and the attribute names in the exports.
 
-## distribution
+## Python
 
-```cmd
-pip install pyinstaller
+This was made with `Python@3.12`
 
-pyinstaller --onefile ./alfa_scout_zero
+### Pip
+
+```bash
+## install package and add to "requirements"
+pip install SomePackage
+pip freeze > requirements.txt
+
+## Restore packages from "requirements.txt"
+pip install -r requirements.txt
+
 ```
 
-> This was made with `Python@3.12`
+### Distribution
+
+```bash
+pyinstaller --onefile ./alfa_scout_zero
+```

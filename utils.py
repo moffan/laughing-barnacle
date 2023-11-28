@@ -2,7 +2,7 @@ from watchfiles import watch
 import calculations
 import csv
 import os
-import player_tooling
+import utils_player
 
 from settings import data_folder
 from roles import player_roles
@@ -36,7 +36,7 @@ def watch_players():
         (_, file_path) = change
         filename = os.path.splitext(os.path.basename(file_path))[0]
 
-        stats = player_tooling.get_player_stats(file_path)
+        stats = utils_player.get_player_stats(file_path)
 
         rankings = {}
         for ranked_role, value in player_roles.items():
