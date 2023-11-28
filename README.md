@@ -57,6 +57,61 @@ For a `"Imported full back - support"` create a file named `inverted-fullback-su
 }
 ```
 
+```json
+{
+  "Cor": 0,
+  "Cro": 0,
+  "Dri": 0,
+  "Fin": 0,
+  "Fir": 0,
+  "Fre": 0,
+  "Hea": 0,
+  "Lon": 0,
+  "L Th": 0,
+  "Mar": 0,
+  "Pas": 0,
+  "Pen": 0,
+  "Tck": 0,
+  "Tec": 0,
+
+  "Agg": 0,
+  "Ant": 0,
+  "Bra": 0,
+  "Cmp": 0,
+  "Cnt": 0,
+  "Dec": 0,
+  "Tea": 0,
+  "Det": 0,
+  "Fla": 0,
+  "Ldr": 0,
+  "OtB": 0,
+  "Pos": 0,
+  "Vis": 0,
+  "Wor": 0,
+
+  "Acc": 0,
+  "Agi": 0,
+  "Bal": 0,
+  "Jum": 0,
+  "Nat": 0,
+  "Pac": 0,
+  "Sta": 0,
+  "Str": 0,
+
+  "Aer": 0,
+  "Cmd": 0,
+  "Com": 0,
+  "Ecc": 0,
+  "Han": 0,
+  "Kic": 0,
+  "1v1": 0,
+  "Pun": 0,
+  "Ref": 0,
+  "TRO": 0,
+  "Thr": 0
+}
+```
+
 > Note! the name of the attributes must match the names in game and the attribute names in the exports.
 
 ## Python

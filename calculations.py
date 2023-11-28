@@ -9,7 +9,10 @@ def calculate_weighted_average(stats, weights, cutoff=0):
             weight_total += weight
 
             if key in stats.keys():
-                attribute = int(stats[key])
+                try: 
+                    attribute = int(stats[key])
+                except:
+                    attribute = 0
             else:
                 attribute = 0
 
